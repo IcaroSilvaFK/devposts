@@ -41,7 +41,6 @@ const SearchPage: NextPage<{ data: IDevProps[] }> = ({ data }) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const work = ctx.params?.work;
-  console.log(work);
   const response = await devApi.get("articles/latest", {
     params: {
       tag: work,
