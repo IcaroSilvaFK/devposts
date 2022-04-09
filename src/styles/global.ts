@@ -34,7 +34,18 @@ export const GlobalStyle = createGlobalStyle`
   body,#__next{
     width: 100%;
     height: 100%;
-    font-family: var(--fontPoppins)
+    font-family: var(--fontPoppins);
+    background-color:#F2F6FC;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar{
+      background-color:transparent;
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb{
+      background-color:#718096;
+
+      border-radius: 20px;
+    }
   }
 
   button,input{

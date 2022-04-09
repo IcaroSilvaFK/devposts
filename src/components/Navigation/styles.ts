@@ -17,6 +17,10 @@ export const Container = styled.nav`
           transition: all 0.3s;
         }
       }
+      button {
+        padding: 10px;
+        background-color: transparent;
+      }
     }
   }
 `;

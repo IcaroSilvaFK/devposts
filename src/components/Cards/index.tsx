@@ -1,5 +1,4 @@
 import { FC } from "react";
-import Link from "next/link";
 
 import { Container, Box, Image, Tag } from "./styles";
 import { IReactPostProps } from "../../interface/dev.article.interface";
@@ -56,18 +55,3 @@ export const Card: FC<IReactPostProps> = ({
     </Container>
   );
 };
-
-/*
-
-[img] [time
-      title
-      desc
-      user[
-        img [
-          name 
-        followers
-
-        ]
-      ]   
-    ]
-*/

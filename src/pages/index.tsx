@@ -1,5 +1,5 @@
 // * Imports Libs
-import { useState } from "react";
+import { useEffect } from "react";
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
 import Head from "next/head";
@@ -7,6 +7,7 @@ import Head from "next/head";
 // * components
 import { Card } from "../components/Cards";
 import { Header } from "../components/Header";
+import { CardDevelopment } from "../components/CardDevelopment";
 
 // * api
 import { devApi } from "../configs/axios";
@@ -15,13 +16,12 @@ import { devApi } from "../configs/axios";
 import { IDevProps, IReactPostProps } from "../interface/dev.article.interface";
 
 // * styles
-import { Container } from "./styles/home.styles";
+import { Container, SectionCards } from "./styles/home.styles";
 
-const Home: NextPage<{ data: IDevProps[]; reactNotice: IReactPostProps[] }> = ({
-  data,
-  reactNotice,
-}) => {
-  console.log(reactNotice[0].user);
+const Home: NextPage<{
+  allPosts: IDevProps[];
+  reactNotice: IReactPostProps[];
+}> = ({ allPosts, reactNotice }) => {
   return (
     <>
       <Head>
@@ -40,6 +40,21 @@ const Home: NextPage<{ data: IDevProps[]; reactNotice: IReactPostProps[] }> = ({
           tag_list={reactNotice[0].tag_list}
           user={reactNotice[0].user}
         />
+        <SectionCards>
+          {allPosts?.map((post) => (
+            <CardDevelopment
+              created_at={post.created_at}
+              description={post.description}
+              positive_reactions_count={post.positive_reactions_count}
+              title={post.title}
+              url={post.url}
+              user={post.user}
+              key={post.id}
+              cover_image={post.cover_image}
+              id={post.id}
+            />
+          ))}
+        </SectionCards>
       </Container>
     </>
   );
@@ -62,7 +77,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   });
 
   const [posts, react] = await Promise.all([response, reactNotice]);
-  console.log(react.status);
   if (posts.status === 200 && react.status === 200) {
     const reactNotice = await react.data;
     const allPosts = await posts.data;
@@ -76,35 +90,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       destination: "/404",
       permanent: false,
     },
+    revalidate: 60 * 60 * 24, // one day
   };
 };
 
 export default Home;
-
-/*
-
-Autorização =  AAAAAAAAAAAAAAAAAAAAAMs4bQEAAAAA3TrS2sHF0Z9Xs8MYK5MtXs%2FD%2Bc8%3DzjDcw30HvjDuYR8JkdPRTNh2T2LoJq5t9OhTwRjY3p9owSsf3k
-
-
-key e secret= IhAqf6ATCD6QriiDyZl1OVkVg
-
-
-key e secret=  F6C3WxrpHibgPgAzdyZm6lrZfJXaeHUH4EyE7zxdH87Q5ZKycI
-
-
-acess token e secret =  1508954927275687944-5V8FQGnRrGMxvgXqC7PNFBFf2uFeVL
-
-
-acess token e secret =  KNC5Xy8yma1taVm8VZ1MTdNIBsC62LmhuUtf40eMkmGUr
-
-
-http://127.0.0.1:xxxx/
-
-
-client secret 0k-3N3uXhgZdSTQXjlSMtSLtf92Je2btGzt_ja5WTlACQHG7dg
-
-client ID VURSenNKVmUyMWNtNzZ5dXItaU46MTpjaQ
-
-
-
-*/

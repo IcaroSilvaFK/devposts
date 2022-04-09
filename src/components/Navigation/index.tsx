@@ -1,9 +1,14 @@
 import { FC } from "react";
 import Link from "next/link";
+import { BsSearch } from "react-icons/bs";
+
+import { useModa } from "../../context/modalContext";
 
 import { Container } from "./styles";
 
 export const Navigation: FC = () => {
+  const { handleOpenModal } = useModa();
+
   return (
     <Container>
       <ul>
@@ -13,9 +18,9 @@ export const Navigation: FC = () => {
           </Link>
         </li>
         <li>
-          <Link href='/'>
-            <a>Search</a>
-          </Link>
+          <button onClick={handleOpenModal}>
+            <BsSearch size={20} color='#718096' />
+          </button>
         </li>
       </ul>
     </Container>

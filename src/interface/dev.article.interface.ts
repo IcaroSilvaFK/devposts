@@ -1,13 +1,11 @@
 export interface IDevProps {
-  type_of: string;
   id: number;
   title: string;
-  readable_publish_date: string;
-  public_reactions_count: number;
   positive_reactions_count: number;
-  cover_image?: string;
+  description: string;
+  cover_image: string;
   created_at: string;
-  tag_list: [string];
+  url: string;
   user: {
     name: string;
     twitter_username: string;
