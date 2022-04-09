@@ -25,7 +25,7 @@ const Home: NextPage<{
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>POSTS das suas principais ferramentas</title>
       </Head>
       <Header />
       <Container>
