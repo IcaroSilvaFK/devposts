@@ -16,7 +16,7 @@ import { devApi } from "../configs/axios";
 import { IDevProps, IReactPostProps } from "../interface/dev.article.interface";
 
 // * styles
-import { Container, SectionCards } from "./styles/home.styles";
+import { SectionCards } from "../styles/home.styles";
 
 const Home: NextPage<{
   allPosts: IDevProps[];
@@ -28,34 +28,32 @@ const Home: NextPage<{
         <title>POSTS das suas principais ferramentas</title>
       </Head>
       <Header />
-      <Container>
-        <Card
-          canonical_url={reactNotice[0].canonical_url}
-          cover_image={reactNotice[0].cover_image}
-          created_at={reactNotice[0].created_at}
-          description={reactNotice[0].description}
-          social_image={reactNotice[0].social_image}
-          title={reactNotice[0].title}
-          url={reactNotice[0].url}
-          tag_list={reactNotice[0].tag_list}
-          user={reactNotice[0].user}
-        />
-        <SectionCards>
-          {allPosts?.map((post) => (
-            <CardDevelopment
-              created_at={post.created_at}
-              description={post.description}
-              positive_reactions_count={post.positive_reactions_count}
-              title={post.title}
-              url={post.url}
-              user={post.user}
-              key={post.id}
-              cover_image={post.cover_image}
-              id={post.id}
-            />
-          ))}
-        </SectionCards>
-      </Container>
+      <Card
+        canonical_url={reactNotice[0].canonical_url}
+        cover_image={reactNotice[0].cover_image}
+        created_at={reactNotice[0].created_at}
+        description={reactNotice[0].description}
+        social_image={reactNotice[0].social_image}
+        title={reactNotice[0].title}
+        url={reactNotice[0].url}
+        tag_list={reactNotice[0].tag_list}
+        user={reactNotice[0].user}
+      />
+      <SectionCards>
+        {allPosts?.map((post) => (
+          <CardDevelopment
+            created_at={post.created_at}
+            description={post.description}
+            positive_reactions_count={post.positive_reactions_count}
+            title={post.title}
+            url={post.url}
+            user={post.user}
+            key={post.id}
+            cover_image={post.cover_image}
+            id={post.id}
+          />
+        ))}
+      </SectionCards>
     </>
   );
 };

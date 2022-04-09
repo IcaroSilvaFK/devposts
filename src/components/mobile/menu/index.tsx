@@ -24,7 +24,7 @@ export const MenuMobile: FC<{ active: boolean; closeMenu: () => void }> = ({
           <IoMdClose color='#fff' size={20} />
         </Close>
         <li>
-          <Link href=''>
+          <Link href='/'>
             <a>Tweets</a>
           </Link>
         </li>

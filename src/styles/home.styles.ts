@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.section``;
-
 export const SectionCards = styled.div`
   display: flex;
   flex-wrap: wrap;

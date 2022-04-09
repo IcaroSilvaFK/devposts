@@ -9,7 +9,7 @@ import { Header } from "../../components/Header";
 
 import { IDevProps } from "../../interface/dev.article.interface";
 
-import { Section } from "./styles";
+import { Section } from "../../styles/styles";
 
 const SearchPage: NextPage<{ data: IDevProps[] }> = ({ data }) => {
   const router = useRouter();
