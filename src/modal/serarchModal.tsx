@@ -18,7 +18,7 @@ export const SearchModal: FC = () => {
   const { register, handleSubmit, reset } = useForm<IFormProps>();
 
   const submitHandler: SubmitHandler<IFormProps> = (data) => {
-    router.push(`/search/${data.search}`);
+    router.push(`/search/${data.search.toLowerCase()}`);
     reset();
     handleCloseModal();
   };
