@@ -69,7 +69,14 @@ export const Box = styled.div`
 
     .author__content {
       font-size: 12px;
+      a {
+        transition: all 0.3s;
 
+        &:hover {
+          text-decoration: underline;
+          filter: brightness(0.8);
+        }
+      }
       span {
         color: var(--gray600);
       }
@@ -140,10 +147,6 @@ export const Box = styled.div`
 
       .author__content {
         font-size: 12px;
-
-        span {
-          color: var(--gray600);
-        }
       }
     }
     .box__content {

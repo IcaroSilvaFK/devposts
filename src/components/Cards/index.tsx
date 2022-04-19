@@ -48,7 +48,9 @@ export const Card: FC<IReactPostProps> = ({
           </div>
           <div className='author__content'>
             <strong>{user.name}</strong>
-            <a href={user.website_url}>Link from profile</a>
+            <a href={user.website_url} rel='noreferrer'>
+              Link from profile
+            </a>
           </div>
         </div>
       </Box>

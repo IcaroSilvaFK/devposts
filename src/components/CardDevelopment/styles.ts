@@ -26,6 +26,7 @@ export const Box = styled.div`
       font-size: 16px;
       color: var(--gray600);
       padding: 5px 0;
+      word-wrap: break-word;
     }
   }
 
